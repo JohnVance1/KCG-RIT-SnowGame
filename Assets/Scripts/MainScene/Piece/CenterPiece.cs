@@ -9,6 +9,7 @@ public class CenterPiece : MeshGenBase {
     [SerializeField] PolygonCollider2D Polygon = null;//ポリゴン当たり判定(三角同士の当たり判定検知)
     [SerializeField] PieceLine PieceLine;//ピースの線を引くクラス。
     [SerializeField] int DirAdd = 0;
+    [SerializeField] bool flipX = false;
     CollisionCheck2D Col = null;
     MeshFilter MFcache = null;
     Camera mainCam;//カメラ
@@ -21,6 +22,7 @@ public class CenterPiece : MeshGenBase {
     Vector3 MouseInitPos = Vector3.zero;//マウスの初期位置を
     Vector3[] VertexInit { get; set; }
     Vector2[] PolygonVex { get; set; }
+    bool isFadeOut = false;
     void Awake() {
         LineVertex.Add(Vector3.zero);
         //CreateMesh
@@ -39,6 +41,7 @@ public class CenterPiece : MeshGenBase {
         CreateHex();
     }
     void Update() {
+        if (isFadeOut) return;
         float dir = GetDir(MouseInitPos, Input.mousePosition) + 180 + DirAdd;
         int CalcDir = (int)Mathf.Round(dir / 60f);
         dir = (CalcDir * 60) % 360;
@@ -52,8 +55,8 @@ public class CenterPiece : MeshGenBase {
             MouseInitPos = Input.mousePosition;
             VertexInit = mesh.vertices;
             PolygonVex = Polygon.points;
-        } else if ((Input.GetMouseButtonUp(0) || Col.isCollision) && isClicked) {
-            SetVertex(CalcDir, Col.isCollision);
+        } else if ((Input.GetMouseButtonUp(0)) && isClicked) {
+            SetVertex(CalcDir);
         }
         if (!isClicked) return;
         //=============================
@@ -62,10 +65,9 @@ public class CenterPiece : MeshGenBase {
         var distance = Vector3.Distance(MouseInitPos, Input.mousePosition);
         CalcPos.x = distance * Mathf.Sin(dir * Mathf.Deg2Rad) / screenSizeY;
         CalcPos.z = distance * Mathf.Cos(dir * Mathf.Deg2Rad) / screenSizeY;
+        if (flipX) { CalcPos.x *= -1; }
         SlideVertex();
     }
-
-
     public void SetVertex(int CalcDir, bool isCollide = false) {
         Vector3 moveVec = Vector3.down;
         Debug.Log(CalcDir % 6);
@@ -81,6 +83,8 @@ public class CenterPiece : MeshGenBase {
                 moveVec.y = -0.5f;
                 break;
         }
+        if (flipX) { moveVec.x *= -1; }
+
         //Correct the position.
         if (!isCollide) {
             if (moveVec.x != 0) {
@@ -100,6 +104,21 @@ public class CenterPiece : MeshGenBase {
         SlideVertex();
     }
 
+    //When cleard stage,Use this.
+    public void FadeOut() {
+        StartCoroutine(FadeCorutine());
+        isFadeOut = true;
+    }
+    IEnumerator FadeCorutine() {
+        var material = GetComponent<Renderer>().materials[0];
+        var COLOR = material.GetColor("_Color");
+        float init = COLOR.a;
+        for (float TIME = 0; TIME < 1f; TIME += Time.deltaTime) {
+            COLOR.a -= init / (1f / Time.deltaTime);
+            material.SetColor("_Color", COLOR);
+            yield return null;
+        }
+    }
     void SlideVertex() {
         Vector3[] vertices = MFcache.mesh.vertices;
         for (int i = 0; i < vertices.Length; i++) { vertices[i] = VertexInit[i] + CalcPos; }

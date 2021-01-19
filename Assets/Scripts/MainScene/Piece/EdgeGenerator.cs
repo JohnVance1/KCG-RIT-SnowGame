@@ -15,8 +15,8 @@ public class EdgeGenerator : MonoBehaviour {
         for (byte edgeNum = 0; edgeNum < 7; edgeNum++) {
             vec.x = Mathf.Cos(60 * index * Mathf.Deg2Rad);
             vec.y = Mathf.Sin(60 * index * Mathf.Deg2Rad);
-            fieldEdge[edgeNum] = vec * (board.size + 0.001f);
-            clearEdge[edgeNum] = vec * (board.size + 1.001f);
+            fieldEdge[edgeNum] = vec * (board.size + 0.01f);
+            clearEdge[edgeNum] = vec * (board.size + 1.01f);
             index++;
         }
         index--;

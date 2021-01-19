@@ -48,6 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Polygon: {fileID: 5551808375155835152}
+  Renderer: {fileID: 1090824464253432793}
+  PartMaterial:
+  - {fileID: 2100000, guid: bb86c983994baf54b85bca76903c8c74, type: 2}
+  - {fileID: 2100000, guid: 409b92d0635982f4fa941c74402fe861, type: 2}
+  - {fileID: 2100000, guid: c4d7a6f27c56bbe46a285d0321a4d004, type: 2}
 --- !u!23 &1090824464253432793
 MeshRenderer:
   m_ObjectHideFlags: 0
