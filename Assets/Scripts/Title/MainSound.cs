@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class MainSound : MonoBehaviour
 {
-    public bool DontDestroyEnabled = true;
-    void Start()
+    private static MainSound sound;
+    public static MainSound Sound { get { return sound; } }
+
+    private void Awake()
     {
-        if (DontDestroyEnabled)
+        if (sound != null && sound != this)
         {
-            DontDestroyOnLoad(this);
+            Destroy(this.gameObject);
         }
+        else
+        {
+            sound = this;
+            DontDestroyOnLoad(this);
+
+        }
+
+
     }
+
+   
 }
