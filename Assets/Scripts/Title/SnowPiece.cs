@@ -11,7 +11,7 @@ public class SnowPiece : MonoBehaviour {
     float ScreenScaleY = 1f;
     public GameObject Snoefall;
     void Start() {
-        ScreenScaleY = 1080f / Screen.height;
+        ScreenScaleY = Screen.height / 1080f;
         StartCoroutine(Snowstart());
     }
     void Update() {
