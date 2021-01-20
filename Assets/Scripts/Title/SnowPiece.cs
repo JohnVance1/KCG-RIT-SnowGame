@@ -19,7 +19,7 @@ public class SnowPiece : MonoBehaviour {
     }
     IEnumerator Snowstart() {
         for (float i = 0.0f; i < 2.7f; i += Time.deltaTime) {
-            snow.position += new Vector3(0, -750.0f / (2.7f / Time.deltaTime) * (2.7f - i), 0);
+            snow.position += new Vector3(0, -850.0f * ScreenScaleY / (2.7f / Time.deltaTime) * (2.7f - i), 0);
             snow.Rotate(0, 0, -200.0f / (2.7f / Time.deltaTime) * (2.7f - i));
             yield return null;
         }
