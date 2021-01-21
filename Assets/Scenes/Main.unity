@@ -5618,13 +5618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hexBoard: {fileID: 773127070}
   TPeace: {fileID: 1090824464253432795, guid: ca9e761eb00cb354e8c0912b3ba1c3a3, type: 3}
-  PD:
-  - InitHex:
-      direction: 0
-      outerIndex: 1
-      step: 2
-    HexLength: 3
-    moveDir: 1
+  PD: {fileID: 11400000, guid: d37fe825854e7eb41808e0208ea7caa0, type: 2}
 --- !u!4 &1880190244
 Transform:
   m_ObjectHideFlags: 0

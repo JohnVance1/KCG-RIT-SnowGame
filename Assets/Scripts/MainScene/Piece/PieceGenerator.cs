@@ -15,10 +15,3 @@ public class PieceGenerator : MonoBehaviour {
     }
 
 }
-
-[System.Serializable]
-public class PieceData {
-    public HexCoordinates InitHex = new HexCoordinates(HexDirection.N, 0, 0);
-    public uint HexLength = 1;
-    public MoveDirection moveDir = MoveDirection.N_S;
-}
