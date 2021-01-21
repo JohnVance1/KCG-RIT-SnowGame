@@ -34,7 +34,7 @@ public class CenterPiece : MeshGenBase {
         MFcache = GetComponent<MeshFilter>();
         MFcache.mesh = mesh;
 
-       
+
         meshcollision = GetComponent<MeshCollider>();
         meshcollision.sharedMesh = mesh;
         Col = Polygon.GetComponent<CollisionCheck2D>();

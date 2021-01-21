@@ -308,5 +308,5 @@ MonoBehaviour:
   CollisionList:
   - Piece
   - StageWall
-  - StageWall
+  - CenterPiece
   ClearList: []

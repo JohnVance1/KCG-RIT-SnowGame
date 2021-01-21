@@ -57,9 +57,9 @@ public class TrianglePeace : MeshGenBase {
         //クリック離したとき検知。
         else if ((Input.GetMouseButtonUp(0) || Col.isCollision) && isClicked) {
             audioSource.PlayOneShot(triangleSet);
+            SetVertice();
             isClicked = false;
             Col.isCollision = false;
-            SetVertice();
         }
         if (!isClicked) return;
         //===============================================
@@ -81,6 +81,10 @@ public class TrianglePeace : MeshGenBase {
         }
         if (moveVec.y != 0) {
             CalcPos.z = Mathf.Round(CalcPos.z / moveVec.y) * moveVec.y;
+        }
+        if (Col.isCollision) {
+            CalcPos = Vector3.zero;
+            Col.isCollision = false;
         }
         SlideVertice();
     }
