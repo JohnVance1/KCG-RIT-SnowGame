@@ -28,6 +28,6 @@ public class BackToTitle : MonoBehaviour {
             yield return null;
         }
         Panel.color = Color.black;
-        SceneManager.LoadScene("Title_Music"); // Will change when merged
+        SceneManager.LoadScene("Title"); // Will change when merged
     }
 }
