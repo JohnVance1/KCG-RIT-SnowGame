@@ -1,12 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-using System.Linq;
+
 public enum MoveDirection {
     N_S, NE_SW, NW_SE
 }
-public class TrianglePeace : MeshGenBase {
+public class TrianglePiece : MeshGenBase {
     Vector3 moveVec = Vector3.up;
     MeshCollider meshcollision = null;//メッシュ当たり判定(レイを飛ばしてクリックを検知するため。)
     [SerializeField] PolygonCollider2D Polygon = null;//ポリゴン当たり判定(三角同士の当たり判定検知)

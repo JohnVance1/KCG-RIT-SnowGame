@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PieceGenerator : MonoBehaviour {
     [SerializeField] HexBoard hexBoard = null;
-    [SerializeField] TrianglePeace TPeace = null;
+    [SerializeField] TrianglePiece TPeace = null;
     [SerializeField] PieceData[] PD = null;
     void Start() {
         Transform BoardTrans = hexBoard.transform;
