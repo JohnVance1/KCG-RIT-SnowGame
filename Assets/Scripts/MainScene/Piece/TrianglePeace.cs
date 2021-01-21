@@ -17,6 +17,9 @@ public class TrianglePeace : MeshGenBase {
     Camera mainCam;//カメラ
     bool isClicked = false;//今クリックされているかを格納する。
 
+    public AudioClip triangleSet;
+    AudioSource audioSource;
+
     //動かす際に必要。
     Vector3 CalcPos = Vector3.zero;//位置の計算に使う。
     float screenSizeY = 0;
@@ -30,6 +33,8 @@ public class TrianglePeace : MeshGenBase {
         //MeshSettings
         MFcache = GetComponent<MeshFilter>();
         MFcache.mesh = mesh;
+
+        audioSource = GetComponent<AudioSource>();
 
         meshcollision = GetComponent<MeshCollider>();
         meshcollision.sharedMesh = mesh;
@@ -51,6 +56,7 @@ public class TrianglePeace : MeshGenBase {
         }
         //クリック離したとき検知。
         else if ((Input.GetMouseButtonUp(0) || Col.isCollision) && isClicked) {
+            audioSource.PlayOneShot(triangleSet);
             isClicked = false;
             Col.isCollision = false;
             SetVertice();

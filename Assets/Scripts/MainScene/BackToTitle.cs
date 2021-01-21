@@ -6,8 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class BackToTitle : MonoBehaviour {
     [SerializeField] Image Panel;
+    public AudioClip title;
+    AudioSource audioSource;
+    
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     public void OnClick() {
         StartCoroutine(BackTitle());
+        audioSource.PlayOneShot(title);
+
     }
     IEnumerator BackTitle() {
         var COL = Color.black;
@@ -18,6 +28,6 @@ public class BackToTitle : MonoBehaviour {
             yield return null;
         }
         Panel.color = Color.black;
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("Title_Music"); // Will change when merged
     }
 }

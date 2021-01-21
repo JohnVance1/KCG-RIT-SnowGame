@@ -32,7 +32,7 @@ public class Select : MonoBehaviour
             audioSource.PlayOneShot(start);
             StartCoroutine(Checking(audioSource, () =>
             {
-                SceneManager.LoadScene("Main");
+                SceneManager.LoadScene("Main_Music"); // Will change once merged
             }));
         }
     }

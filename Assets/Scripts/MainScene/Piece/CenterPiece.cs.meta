@@ -3,7 +3,10 @@ guid: 36d41e29e7d33c9498b06881e170370e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Polygon: {instanceID: 0}
+  - PieceLine: {instanceID: 0}
+  - pieceSet: {fileID: 8300000, guid: dc7b3a04b6ed18048a91fd90adfcc266, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

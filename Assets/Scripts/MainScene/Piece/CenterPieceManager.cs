@@ -10,7 +10,23 @@ public class CenterPieceManager : MonoBehaviour {
     [SerializeField] RectTransform BackCrystalTrans;
     bool isClear = false;
 
+    public AudioClip pieceSet;
+    AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Update() {
+
+        if(CenterPieces[0].centerSet)
+        {
+            audioSource.pitch = Random.Range(0.9f, 1.1f);
+            audioSource.PlayOneShot(pieceSet);
+            CenterPieces[0].centerSet = false;
+        }        
+
         if (isClear) return;//クリアしていたら処理をとばす。
 
         //中心から伸びているオブジェクトのうち一つでも何か邪魔なものに当たったら元に戻るようにする。

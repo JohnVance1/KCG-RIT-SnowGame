@@ -16,6 +16,8 @@ public class CenterPiece : MeshGenBase {
     bool isClicked = false;//今クリックされているかを格納する。
     List<Vector3> LineVertex = new List<Vector3>();//線の
 
+    public bool centerSet = false;
+
     //動かす際に必要。
     Vector3 CalcPos = Vector3.zero;//位置の計算に使う。
     float screenSizeY = 0;
@@ -32,6 +34,7 @@ public class CenterPiece : MeshGenBase {
         MFcache = GetComponent<MeshFilter>();
         MFcache.mesh = mesh;
 
+       
         meshcollision = GetComponent<MeshCollider>();
         meshcollision.sharedMesh = mesh;
         Col = Polygon.GetComponent<CollisionCheck2D>();
@@ -66,7 +69,9 @@ public class CenterPiece : MeshGenBase {
         CalcPos.x = distance * Mathf.Sin(dir * Mathf.Deg2Rad) / screenSizeY;
         CalcPos.z = distance * Mathf.Cos(dir * Mathf.Deg2Rad) / screenSizeY;
         if (flipX) { CalcPos.x *= -1; }
+
         SlideVertex();
+
     }
     public void SetVertex(int CalcDir, bool isCollide = false) {
         Vector3 moveVec = Vector3.down;
@@ -99,6 +104,7 @@ public class CenterPiece : MeshGenBase {
         } else {
             CalcPos = Vector3.zero;
         }
+        centerSet = true;
         isClicked = false;
         Col.isCollision = false;
         SlideVertex();
