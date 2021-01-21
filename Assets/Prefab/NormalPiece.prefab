@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cf025a11bbe66440903e2bababb66c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slideSensitive: 4
   Polygon: {fileID: 5551808375155835152}
   Renderer: {fileID: 1090824464253432793}
   triangleSet: {fileID: 8300000, guid: dc7b3a04b6ed18048a91fd90adfcc266, type: 3}

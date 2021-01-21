@@ -10,13 +10,15 @@ using UnityEngine;
 public struct HexCoordinates : IEquatable<HexCoordinates>
 {
     [SerializeField]
-    private int direction, outerIndex, step;
+    private HexDirection direction;
+    [SerializeField]
+    private int outerIndex, step;
 
     public HexDirection X
     {
         get
         {
-            return (HexDirection)direction;
+            return direction;
         }
     }
 
@@ -51,7 +53,7 @@ public struct HexCoordinates : IEquatable<HexCoordinates>
         if (outerIndex < 0 || step < 0)
             throw new IndexOutOfRangeException("Outer index and step must be no less than 0.");
 
-        this.direction = (int)direction;
+        this.direction = direction;
         this.outerIndex = outerIndex;
         this.step = step;
     }
@@ -73,10 +75,10 @@ public struct HexCoordinates : IEquatable<HexCoordinates>
         if (this == Origin)
             return Vector3.zero;
 
-        HexDirection dir = (HexDirection)direction;
+        HexDirection dir = direction;
         HexDirection outerDir = dir.Next().Next();
 
-        Vector3 vbase = HexMetrics.corners[direction] * step;
+        Vector3 vbase = HexMetrics.corners[(int)direction] * step;
         Vector3 offset = HexMetrics.corners[(int)outerDir] * outerIndex;
         return vbase + offset;
     }

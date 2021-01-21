@@ -1,12 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-using System.Linq;
+
 public enum MoveDirection {
     N_S, NE_SW, NW_SE
 }
-public class TrianglePeace : MeshGenBase {
+public class TrianglePiece : MeshGenBase {
+    [Range(1f, 5f)]
+    public float slideSensitive = 2.5f;
+
     Vector3 moveVec = Vector3.up;
     MeshCollider meshcollision = null;//メッシュ当たり判定(レイを飛ばしてクリックを検知するため。)
     [SerializeField] PolygonCollider2D Polygon = null;//ポリゴン当たり判定(三角同士の当たり判定検知)
@@ -68,7 +69,7 @@ public class TrianglePeace : MeshGenBase {
         CalcPos.z = CalcPos.y * moveVec.y;
         CalcPos.x = CalcPos.z * moveVec.x;
         CalcPos.y = 0;
-        CalcPos /= screenSizeY;
+        CalcPos /= screenSizeY / slideSensitive;
         SlideVertice();
     }
 
