@@ -7,32 +7,32 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public abstract class MeshGenBase : MonoBehaviour
-{
+public abstract class MeshGenBase : MonoBehaviour {
     protected Mesh mesh;
     protected Material defaultMat;
     protected readonly List<Vector3> vertices = new List<Vector3>();
     protected readonly List<int> triangles = new List<int>();
 
-    public virtual void SaveAsset()
-    {
-        if (mesh == null)
-        {
+    public virtual void SaveAsset() {
+
+        if (mesh == null) {
             Debug.Log("Not generated, cannot save.");
             return;
         }
+
+#if UNITY_EDITOR
         string path = EditorUtility.SaveFilePanel("Save Separate Mesh Asset", "Assets/", name, "asset");
         path = FileUtil.GetProjectRelativePath(path);
         Debug.Log("Saving mesh to: " + path);
 
         AssetDatabase.CreateAsset(mesh, path);
         AssetDatabase.SaveAssets();
+#else
+#endif
     }
 
-    protected void FlipNormals()
-    {
-        if (mesh == null)
-        {
+    protected void FlipNormals() {
+        if (mesh == null) {
             Debug.Log("Not generated, cannot flip.");
             return;
         }
@@ -41,11 +41,9 @@ public abstract class MeshGenBase : MonoBehaviour
             normals[i] *= -1;
         mesh.normals = normals;
 
-        for (int m = 0; m < mesh.subMeshCount; m++)
-        {
+        for (int m = 0; m < mesh.subMeshCount; m++) {
             int[] tris = mesh.GetTriangles(m);
-            for (int i = 0; i < tris.Length; i += 3)
-            {
+            for (int i = 0; i < tris.Length; i += 3) {
                 int temp = tris[i + 0];
                 tris[i + 0] = tris[i + 1];
                 tris[i + 1] = temp;
@@ -54,8 +52,7 @@ public abstract class MeshGenBase : MonoBehaviour
         }
     }
 
-    protected void AddTriangle(Vector3 v1, Vector3 v2, Vector3 v3)
-    {
+    protected void AddTriangle(Vector3 v1, Vector3 v2, Vector3 v3) {
         int vertexIndex = vertices.Count;
         vertices.Add(v1);
         vertices.Add(v2);
@@ -65,8 +62,7 @@ public abstract class MeshGenBase : MonoBehaviour
         triangles.Add(vertexIndex + 2);
     }
 
-    protected void AddQuad(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 v4)
-    {
+    protected void AddQuad(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 v4) {
         int vertexIndex = vertices.Count;
         vertices.Add(v1);
         vertices.Add(v2);
