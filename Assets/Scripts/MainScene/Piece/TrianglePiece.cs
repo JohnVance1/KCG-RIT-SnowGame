@@ -6,7 +6,9 @@ using System.Linq;
 public enum MoveDirection {
     N_S, NE_SW, NW_SE
 }
-public class TrianglePeace : MeshGenBase {
+public class TrianglePiece : MeshGenBase {
+    [Range(1f, 5f)]
+    public float slideSensitive = 2.5f;
     Vector3 moveVec = Vector3.up;
     MeshCollider meshcollision = null;//メッシュ当たり判定(レイを飛ばしてクリックを検知するため。)
     [SerializeField] PolygonCollider2D Polygon = null;//ポリゴン当たり判定(三角同士の当たり判定検知)
@@ -68,7 +70,7 @@ public class TrianglePeace : MeshGenBase {
         CalcPos.z = CalcPos.y * moveVec.y;
         CalcPos.x = CalcPos.z * moveVec.x;
         CalcPos.y = 0;
-        CalcPos /= screenSizeY;
+        CalcPos /= screenSizeY / slideSensitive;
         SlideVertice();
     }
 
@@ -114,7 +116,6 @@ public class TrianglePeace : MeshGenBase {
     public void CreatePiece(HexCoordinates HC, uint length = 1, MoveDirection moveDir = MoveDirection.N_S) {
         var material = GetComponent<Renderer>().materials[0];
         var COLOR = material.GetColor("_Color");
-        Debug.Log(COLOR);
         switch (moveDir) {
             case MoveDirection.NE_SW:
                 COLOR.r = 0.5f;

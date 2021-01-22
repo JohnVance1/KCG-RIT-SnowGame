@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PieceGenerator : MonoBehaviour {
     [SerializeField] HexBoard hexBoard = null;
-    [SerializeField] TrianglePeace TPeace = null;
+    [SerializeField] TrianglePiece TPeace = null;
     [SerializeField] StageData PD = null;
     void Start() {
         Transform BoardTrans = hexBoard.transform;
-        
+
         for (int i = 0; i < PD.PD.Length; i++) {
             var Piece = Instantiate(TPeace);
             Piece.transform.SetParent(BoardTrans);
