@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitHex:
     direction: 5
-    outerIndex: 1
+    outerIndex: 3
     step: 4
   HexLength: 3
-  moveDir: 1
+  moveDir: 2

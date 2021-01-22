@@ -13,6 +13,8 @@ public class RenderLineManager : MonoBehaviour
 
     public Color ClaerLineColor =  new Color();
 
+    public float RotationSpeed = 0.01f;
+
     [System.Serializable]
     //inspectorÅ@Ç≈Ç‡å©ÇÍÇÈëΩíiäKîzóÒ
     public class LinePosition {
@@ -99,7 +101,7 @@ public class RenderLineManager : MonoBehaviour
 
                 var l_lotation =  L_PieceLine[j].transform.localRotation;
 
-                l_lotation = Quaternion.AngleAxis(0.1f,Vector3.down);
+                l_lotation = Quaternion.AngleAxis(RotationSpeed, Vector3.down);
 
                 L_PieceLine[j].transform.localRotation = L_PieceLine[j].transform.localRotation *l_lotation;
 

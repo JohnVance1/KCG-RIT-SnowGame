@@ -1116,6 +1116,7 @@ MonoBehaviour:
   - {fileID: 1089604683}
   ClearFlag: 0
   ClaerLineColor: {r: 0, g: 0.85471964, b: 1, a: 1}
+  RotationSpeed: 0.01
   LinePositions: []
 --- !u!4 &477440589
 Transform:
@@ -3685,7 +3686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1219494048
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5677,7 +5678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hexBoard: {fileID: 773127070}
   TPeace: {fileID: 1090824464253432795, guid: ca9e761eb00cb354e8c0912b3ba1c3a3, type: 3}
-  PD: {fileID: 11400000, guid: d1cb55a47ed22ea42adb8af108d340e4, type: 2}
+  PD: {fileID: 11400000, guid: 2d1c8cc6a0977524a805215a6c357cfc, type: 2}
 --- !u!4 &1880190244
 Transform:
   m_ObjectHideFlags: 0

@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e97ae15323679ff41a945a1926d07c3a, type: 3}
-  m_Name: SampleStage
+  m_Name: FreeStage
   m_EditorClassIdentifier: 
   PD: []

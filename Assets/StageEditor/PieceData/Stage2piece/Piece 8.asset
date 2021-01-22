@@ -16,5 +16,5 @@ MonoBehaviour:
     direction: 3
     outerIndex: 1
     step: 4
-  HexLength: 3
+  HexLength: 2
   moveDir: 1

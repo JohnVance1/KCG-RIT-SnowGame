@@ -45,6 +45,8 @@ public class CenterPieceManager : MonoBehaviour {
             //Clear Flag On Color Change
             RenderLineManager.RenderLineManagerInstance.ClearFlag = true;
 
+            RenderLineManager.RenderLineManagerInstance.RotationSpeed = 0.2f;
+
             for (byte j = 0; j < CenterPieces.Length; j++) {
                 CenterPieces[j].FadeOut();
             }
