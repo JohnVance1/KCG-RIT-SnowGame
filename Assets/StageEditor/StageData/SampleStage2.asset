@@ -13,7 +13,15 @@ MonoBehaviour:
   m_Name: SampleStage2
   m_EditorClassIdentifier: 
   PD:
-  - {fileID: 11400000, guid: ac3000b2afa38ea49aab1b1f902d49fe, type: 2}
-  - {fileID: 11400000, guid: 5f02c6424b44b8e4f87ba71bf1f980f4, type: 2}
-  - {fileID: 11400000, guid: 299ac3503362b14499c5e7f2be7f91ab, type: 2}
-  - {fileID: 11400000, guid: 1eba61e80f5a70a49ace58d3088a4ec1, type: 2}
+  - {fileID: 11400000, guid: 0671c94180a602b43aeaae20c1167316, type: 2}
+  - {fileID: 11400000, guid: 4b1c972b746155f418ac93b005c28d4d, type: 2}
+  - {fileID: 11400000, guid: 1b926f7b360497f4e9fef698bf038ffc, type: 2}
+  - {fileID: 11400000, guid: 6a8c5e90976e0d64b978c988ca9efa45, type: 2}
+  - {fileID: 11400000, guid: 4a2adb0984cddcc4abbb1a7fdf92009d, type: 2}
+  - {fileID: 11400000, guid: 69efa90231dce0f4e9e70900194c2238, type: 2}
+  - {fileID: 11400000, guid: fdae22cacff731940bac303714ff1d8d, type: 2}
+  - {fileID: 11400000, guid: 33ab4454d07d6564ca4ff14d962a81b9, type: 2}
+  - {fileID: 11400000, guid: 7ee47e0062481c4478ff848245cb8018, type: 2}
+  - {fileID: 11400000, guid: 7a0fe5201907b3c438c610f25811df52, type: 2}
+  - {fileID: 11400000, guid: 8891303d563e4a94088a0e2c1a73df2a, type: 2}
+  - {fileID: 11400000, guid: 8146b2ae3bfd01b48b097d9c0e07202e, type: 2}

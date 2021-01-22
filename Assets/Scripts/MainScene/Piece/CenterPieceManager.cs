@@ -42,6 +42,9 @@ public class CenterPieceManager : MonoBehaviour {
         //中心から伸びているオブジェクトがゴール(ステージの外に出たときクリア判定を送る。)
         if (CenterCollisions[0].isClear) {
             isClear = true;
+            //Clear Flag On Color Change
+            RenderLineManager.RenderLineManagerInstance.ClearFlag = true;
+
             for (byte j = 0; j < CenterPieces.Length; j++) {
                 CenterPieces[j].FadeOut();
             }
